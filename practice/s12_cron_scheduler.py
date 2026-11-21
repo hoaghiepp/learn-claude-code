@@ -372,8 +372,8 @@ def acknowledge_cron_jobs(jobs: list[CronJob]):
 def restore_cron_jobs(jobs: list[CronJob]):
     with cron_lock:
         queued_ids = {job.id for job in cron_queue}
-        for deliverd in jobs:
-            current = scheduled_jobs.get(deliverd.id)
+        for delivered in jobs:
+            current = scheduled_jobs.get(delivered.id)
             if current is None:
                 continue
             current.pending_delivery = True
